@@ -1,3 +1,10 @@
+#!/usr/bin/env python
+
+"""
+This program outputs a plot modelling the motion of a
+celestial body.
+"""
+
 import math
 import numpy as np
 import matplotlib.pyplot as plt
@@ -44,16 +51,28 @@ omega = 5.0
 # The period would be 2*pi/5 =1.257 seconds
 
 
-""" Simple harmonic oscillator potential energy gives forces in
-x, -y directions. Note, strictly speaking, this is actually
-force/mass or acceleration rather than just force."""
-
-
 def fx(x):
+    """
+    Simple harmonic oscillator potential energy U(r) = 1/2*k*r^2,
+    where r = sqrt(x^2+y^2) is the postion of the particle,
+    k>0 constant.
+
+    The force on the particle is F(r) = m*(d²r/dt²) = -k*r.
+
+    Finally, the acceleration fx(x) = d²x/dt² = -$omega$²x = -kx/m,
+    where $omega$ = sqrt(k/m).
+    :param x: x position at the current time
+    :return: acceleration of the object in the x-direction
+    """
     return -x*omega**2
 
 
 def fy(y):
+    """
+    See comments for fx(x).
+    :param y: y position at the current time
+    :return: acceleration of the object in the y-direction
+    """
     return -y*omega**2
 
 
@@ -78,7 +97,8 @@ plt.setp(lines, color='r', marker='.')  # , mew='0.001')
 
 
 """The following three lines define parameters which
-define the actual ellipse path"""
+define the actual ellipse path
+"""
 # eps_x, eps_y = -math.pi/2
 # Ax = 5.0
 # Ay = 10.0
