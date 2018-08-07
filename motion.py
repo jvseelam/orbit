@@ -93,6 +93,7 @@ for i in range(0, steps):
 
 lines = plt.plot(xs, ys)
 plt.setp(lines, color='r', marker='.')  # , mew='0.001')
+plt.show()
 # mew is markeredgewidth
 
 
